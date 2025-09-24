@@ -1,0 +1,6 @@
+file(GLOB sources CONFIGURE_DEPENDS *.cpp)
+foreach (source IN ITEMS ${sources})
+    get_filename_component(name "${source}" NAME_WE)
+    add_executable(${name} ${name}.cpp)
+    target_include_directories(${name} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
+endforeach()
